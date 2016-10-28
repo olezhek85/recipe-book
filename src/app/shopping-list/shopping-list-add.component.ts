@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'rb-shopping-list-add',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListAddComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
