@@ -7,7 +7,8 @@ import {RecipeService} from "./recipes/recipe.service";
 })
 export class HeaderComponent {
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {
+  }
 
   onStore() {
     this.recipeService.storeData().subscribe(
@@ -17,6 +18,6 @@ export class HeaderComponent {
   }
 
   onFetch() {
-
+    this.recipeService.fetchData();
   }
 }
