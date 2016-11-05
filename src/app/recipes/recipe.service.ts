@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Recipe} from './recipe';
 import {Ingredient} from '../shared/ingredient';
 import {Headers, Http, Response} from "@angular/http";
@@ -6,6 +6,8 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class RecipeService {
+  recipesChanged = new EventEmitter<Recipe[]>();
+
   private recipes: Recipe[] = [
     new Recipe('Schnitzel', 'Very tasty',
       'https://bigoven-res.cloudinary.com/image/upload/main---wiener-schnitzel-8f03d26e1f0f2601215a7029.jpg', [
@@ -53,6 +55,7 @@ export class RecipeService {
       .subscribe(
         (data: Recipe[]) => {
           this.recipes = data;
+          this.recipesChanged.emit(this.recipes);
         }
       );
   }
